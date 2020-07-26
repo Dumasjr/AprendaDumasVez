@@ -112,16 +112,17 @@
 
         {!! Form::label('gender', 'Sexo', ['class' => 'col-form-label col-sm-2 text-right']) !!}
 
-        <div class="col-sm-2">
+
+            <div class="col-sm-4">
             {!! Form::label('gender', 'F', ['class' => 'col-form-label col-sm-2 text-right']) !!}
-         {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Masculino']) !!}
+            {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Feminino']) !!}
+            {!! Form::label('gender', 'M', ['class' => 'col-form-label col-sm-2 text-right']) !!}
+            {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Masculino']) !!}
+         </div>
+         <div class="col-sm-4">
+
 
         </div>
-        <div class="col-sm-2">
-            {!! Form::label('gender', 'M', ['class' => 'col-form-label col-sm-2 text-right']) !!}
-            {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Feminino']) !!}
-
-         </div>
 
 
     </div>

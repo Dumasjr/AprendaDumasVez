@@ -86,11 +86,16 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function update(Request $request, $id)
     {
-        //
-    }
+        $client = Clients::where('id', $id)->update($request->except('_token', '_method'));
 
+        if ($client) {
+            return redirect()->route('clients.index');
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -98,7 +103,11 @@ class ClientsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+{
+    $client = Clients::where('id', $id)->delete();
+
+    if ($client) {
+        return redirect()->route('clients.index');
     }
+}
 }

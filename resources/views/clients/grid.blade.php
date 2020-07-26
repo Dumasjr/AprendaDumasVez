@@ -20,24 +20,25 @@
 @section('content')
 <h1>Listagem de Clientes</h1>
 <hr>
-<div class="container">
-    <table class="table table-bordered table-striped table-sm">
-        <thead>
+<div class="table-responsive-xl">
+    <table class="table table-bordered table-sm table table-hover">
+        <thead class="thead-dark">
       <tr>
+
           <th>Nome</th>
-          <th>RG</th>
-          <th>CPF</th>
-          <th>Telefone</th>
-          <th>Celular</th>
-          <th>Email</th>
-          <th>Data Nascimento</th>
+          <th >RG</th>
+          <th >CPF</th>
+          <th >Telefone</th>
+          <th >Celular</th>
+          <th >Email</th>
+          <th >DataNasc</th>
           <th>Sexo</th>
-          <th>Descrição</th>
-          <th>Renda</th>
+          <th >Descrição</th>
+          <th >Renda</th>
 
 
-          <th>
-        <a href="{{ route('clients.create') }}" class="btn btn-info btn-sm" >Novo</a>
+          <th colspan="2" >
+        <a  href="{{ route('clients.create') }}" class="btn btn-info btn-sm" >Novo</a>
           </th>
       </tr>
         </thead>
