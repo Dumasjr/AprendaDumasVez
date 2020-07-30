@@ -19,12 +19,16 @@
 
 @section('content')
 <h1>Listagem de Clientes</h1>
+
 <hr>
-<div class="table-responsive-xl">
+
+
+
+
+<div class="container">
     <table class="table table-bordered table-sm table table-hover">
         <thead class="thead-dark">
       <tr>
-
           <th>Nome</th>
           <th >RG</th>
           <th >CPF</th>
@@ -35,7 +39,6 @@
           <th>Sexo</th>
           <th >Descrição</th>
           <th >Renda</th>
-
 
           <th colspan="2" >
         <a  href="{{ route('clients.create') }}" class="btn btn-info btn-sm" >Novo</a>
@@ -51,7 +54,7 @@
           <td>{{ $client->phone }}</td>
           <td>{{ $client->cel }}</td>
           <td>{{ $client->email }}</td>
-          <td>{{ $client->birth }}</td>
+          <td>{{ date('d-m-Y', strtotime($client->birth))}}</td>
           <td>{{ $client->gender }}</td>
           <td>{{ $client->description }}</td>
           <td>{{ $client->income }}</td>
@@ -73,5 +76,6 @@
       @endforelse
         </tbody>
     </table>
+
 </div>
 @endsection

@@ -13,12 +13,29 @@ class ClientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Clients::all();
-        return view('clients.grid', compact('clients'));
+       // $clients = Clients::all();
+       if ($request->has('search')) {
 
+        $search = $request->get('search');
+
+        $customers = Clients::where('first_name', 'like', "%{$search}%")
+            ->orWhere('last_name', 'like', "%{$search}%")
+            ->orWhere('email', 'like', "%{$search}%")
+            ->orWhere('phone', 'like', "%{$search}%")
+            ->orWhere('address', 'like', "%{$search}%")
+            ->paginate(10);
+
+        $customers->appends(['search' => $search]);
+        return view('clients.grid', compact('clients', 'search'));
+            } else {
+
+         $clients = Clients::paginate(12);
+
+        return view('clients.grid', compact('clients'));
     }
+}
 
     /**
      * Show the form for creating a new resource.
@@ -93,7 +110,7 @@ class ClientsController extends Controller
         $client = Clients::where('id', $id)->update($request->except('_token', '_method'));
 
         if ($client) {
-            return redirect()->route('clients.index');
+            return redirect()->route('clients.index')->with('alert-success', 'Alterado com sucessooooo');
         }
     }
     /**

@@ -112,13 +112,13 @@
 
         {!! Form::label('gender', 'Sexo', ['class' => 'col-form-label col-sm-2 text-right']) !!}
 
+        <div class="col-md-3">
+          <div class="form-group">
 
-            <div class="col-sm-4">
-            {!! Form::label('gender', 'F', ['class' => 'col-form-label col-sm-2 text-right']) !!}
-            {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Feminino']) !!}
-            {!! Form::label('gender', 'M', ['class' => 'col-form-label col-sm-2 text-right']) !!}
-            {!! Form::radio('gender', null, ['class' => 'form-control', 'placeholder'=>'Defina Masculino']) !!}
-         </div>
+              <input type="radio" name="gender" value="F"> Feminino
+              <input type="radio" name="gender" value="M"> Masculino
+          </div>
+      </div>
          <div class="col-sm-4">
 
 
@@ -151,7 +151,7 @@
         </div>
         <div class="card-footer">
       {!! Form::button('cancelar', ['class'=>'btn btn-danger btn-sm', 'onclick' =>'windo:history.go(-1);']); !!}
-      {!! Form::submit(  isset($client) ? 'atualizar' : 'criar', ['class'=>'btn btn-success btn-sm']) !!}
+      {!! Form::submit(  isset($client) ? 'atualizar' : 'Criar', ['class'=>'btn btn-success btn-sm']) !!}
 
         </div>
     </div>
