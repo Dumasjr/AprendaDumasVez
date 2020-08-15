@@ -16,11 +16,18 @@ Route::get('/', function () {
 });
  Route::get('/imoveis','PropertyController@index');
 
- Route::get('/imoveis/cad','PropertyController@dado');
+
+ Route::get('/imoveis/cad','PropertyController@create');
 
  Route::get('/imoveis/{name}','PropertyController@show');
 
  Route::post('/imoveis/store','PropertyController@store');
+
+
+
+ Route::get('/imoveis/editar/{name}','PropertyController@edit');
+ Route::put('/imoveis/update/{name}','PropertyController@update');
+ Route::get('/imoveis/remover/{name}','PropertyController@destroy');
 
 
 Route::middleware('auth')->group(function(){

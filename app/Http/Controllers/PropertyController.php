@@ -15,7 +15,7 @@ class PropertyController extends Controller
 
     }
 
-public function dado(){
+public function create(){
 
     return view('property.create');
 }
@@ -53,7 +53,49 @@ DB::insert('insert into imoveis (type,name, description,rental_price,sale_price)
 return redirect()->action('PropertyController@index');
 }
 
-public function setName($type){
+public function edit($name){
+
+    $property = DB::select("select * from imoveis where name=?", [$name]);
+
+        if(!empty($property)){
+
+            return view('property.edit')->with('property',$property);
+
+}
+}
+
+
+public function update(Request $request,$id)
+{
+    $propertySlug=$this->setName($request->type);
+
+    $property =[
+
+         $request->type,
+         $propertySlug,
+         $request->description,
+         $request->rental_price,
+         $request->sale_price,
+         $id
+    ];
+
+    DB::update('update imoveis set type=?,name=?,description=?,rental_price=?,sale_price=? where id=?', $property);
+    return redirect()->action('PropertyController@index');
+}
+
+
+public function destroy($name)
+{
+    $property = DB::select("select * from imoveis where name=?", [$name]);
+
+    if(!empty($property)){
+        DB::delete("delete from imoveis where name=?",[$name]);
+        return redirect()->action('PropertyController@index');
+    }
+
+var_dump($name);
+}
+private function setName($type){
 
     $propertySlug= str_slug($type);
     $properties = DB::select("SELECT * FROM imoveis");

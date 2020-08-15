@@ -17,8 +17,8 @@ if(!empty($properties)){
                 </tr>";
     foreach ($properties as $property) {
         $linkReadMode=url('imoveis/'.$property->name);
-        $linkEditItem=url('imoveis/editar'. $property->name);
-        $linkDeleteItem=url('imoveis/deletar'. $property->name);
+        $linkEditItem=url('imoveis/editar/'. $property->name);
+        $linkDeleteItem=url('imoveis/remover/'. $property->name);
         $linkNewItem=url('/imoveis/cad');
 
         echo "<tr>
