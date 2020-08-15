@@ -18,7 +18,7 @@ Route::get('/', function () {
 
  Route::get('/imoveis/cad','PropertyController@dado');
 
- Route::get('/imoveis/{id}','PropertyController@show');
+ Route::get('/imoveis/{name}','PropertyController@show');
 
  Route::post('/imoveis/store','PropertyController@store');
 

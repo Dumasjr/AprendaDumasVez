@@ -16,16 +16,16 @@ if(!empty($properties)){
 
                 </tr>";
     foreach ($properties as $property) {
-        $linkReadMode=url('imoveis/'.$property->id);
-        $linkEditItem=url('imoveis/editar'. $property->id);
-        $linkDeleteItem=url('imoveis/deletar'. $property->id);
+        $linkReadMode=url('imoveis/'.$property->name);
+        $linkEditItem=url('imoveis/editar'. $property->name);
+        $linkDeleteItem=url('imoveis/deletar'. $property->name);
         $linkNewItem=url('/imoveis/cad');
 
         echo "<tr>
                 <td>$property->type </td>
                 <td>R$ " . number_format($property->rental_price, 2,',','.'). "</td>
                 <td>R$ " . number_format($property->sale_price, 2,',','.'). "</td>
-                <td><a href='{$linkNewItem} '> Novo </a> |<a href='{$linkReadMode} '> Ver Mais</a> | <a href='{$linkEditItem} '>Editar</a> | <a href='{$linkDeleteItem} '>Deletar</a></td>
+                <td><a href='{$linkReadMode} '> Ver Mais</a> | <a href='{$linkEditItem} '>Editar</a> | <a href='{$linkDeleteItem} '>Deletar</a></td>
 
 
                 </tr>";
