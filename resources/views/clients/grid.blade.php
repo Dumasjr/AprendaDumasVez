@@ -23,8 +23,6 @@
 <hr>
 
 
-
-
 <div class="container">
     <table class="table table-bordered table-sm table table-hover">
         <thead class="thead-dark">
@@ -76,6 +74,6 @@
       @endforelse
         </tbody>
     </table>
-
+    {{ $clients->links() }}
 </div>
 @endsection

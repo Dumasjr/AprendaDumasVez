@@ -20,18 +20,25 @@ class ClientsController extends Controller
 
         $search = $request->get('search');
 
-        $customers = Clients::where('first_name', 'like', "%{$search}%")
-            ->orWhere('last_name', 'like', "%{$search}%")
-            ->orWhere('email', 'like', "%{$search}%")
+        $clients = Clients::where('name', 'like', "%{$search}%")
+            ->orWhere('name', 'like', "%{$search}%")
+            ->orWhere('rg', 'like', "%{$search}%")
+            ->orWhere('cpf', 'like', "%{$search}%")
             ->orWhere('phone', 'like', "%{$search}%")
-            ->orWhere('address', 'like', "%{$search}%")
+            ->orWhere('cel', 'like', "%{$search}%")
+            ->orWhere('email', 'like', "%{$search}%")
+            ->orWhere('birth', 'like', "%{$search}%")
+            ->orWhere('gender', 'like', "%{$search}%")
+            ->orWhere('description', 'like', "%{$search}%")
+            ->orWhere('income', 'like', "%{$search}%")
             ->paginate(10);
 
-        $customers->appends(['search' => $search]);
+            $clients->appends(['search' => $search]);
+
         return view('clients.grid', compact('clients', 'search'));
             } else {
 
-         $clients = Clients::paginate(12);
+         $clients = Clients::paginate(10);
 
         return view('clients.grid', compact('clients'));
     }
