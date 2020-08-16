@@ -1,20 +1,30 @@
+    @extends('property.master')
+
+    @section('content')
+        <div class="container my-3">
+
+
 <h1> Listagem de Imoveis - View</h1>
 
-<p><a href="<?=url('/imoveis/cad');?>" > Cadastrar Novo Imovel</a></p>
+
 
 
 <?php
 
 if(!empty($properties)){
 
-        echo "<table>";
-            echo "<tr>
-                <th>Tipo do Imovel </th>
-                <th> Valor Locação</th>
-                <th> Valor Compra</th>
-                <th> Ações</th>
+        echo "<table class='table table-striped table-hover'>";
+            echo "<thead class='bg-primary text-white'>
+                    <th>Tipo do Imovel </th>
+                    <th> Valor Locação</th>
+                    <th> Valor Compra</th>
+                    <th> Ações</th>
 
-                </tr>";
+
+          </th>
+
+
+                </thead>";
     foreach ($properties as $property) {
         $linkReadMode=url('imoveis/'.$property->name);
         $linkEditItem=url('imoveis/editar/'. $property->name);
@@ -36,3 +46,5 @@ if(!empty($properties)){
 }
 
 ?>
+        </div>
+@endsection

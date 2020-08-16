@@ -1,3 +1,7 @@
+@extends('property.master')
+@section('title', 'Listando todos os registros')
+@section('content')
+<div class="container my-3">
 <h1> Pagina Single</h1>
 
 <?php
@@ -18,4 +22,7 @@ if(!empty('$property')){
     }
 
 }
+?>
+</div>
 
+@endsection
